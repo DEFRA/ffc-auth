@@ -1,5 +1,5 @@
 const { isInRole } = require('./is-in-role')
-const { USER } = require('./scopes')
+const { USER } = require('../scopes')
 
 const mapAuth = (request) => {
   return {
