@@ -1,8 +1,8 @@
 const Wreck = require('@hapi/wreck')
-const { serverConfig } = require('../config')
+const { authHost } = require('../config')
 
 const getPublicKey = async () => {
-  const { payload } = await Wreck.get(`${serverConfig.authHost}/auth/public-key`, { json: true })
+  const { payload } = await Wreck.get(`${authHost}/auth/public-key`, { json: true })
   return payload
 }
 
