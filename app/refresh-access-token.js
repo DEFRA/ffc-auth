@@ -1,7 +1,7 @@
 const Wreck = require('@hapi/wreck')
 
-const refreshAccessToken = async (refreshToken, config, wellKnownUrl) => {
-  const { payload: wellKnownUrlPayload } = await Wreck.get(config.wellKnownUrl, {
+const refreshAccessToken = async (refreshToken, config) => {
+  const { payload: wellKnown } = await Wreck.get(config.wellKnownUrl, {
     json: true
   })
 
@@ -14,14 +14,14 @@ const refreshAccessToken = async (refreshToken, config, wellKnownUrl) => {
     `redirect_uri=${config.redirectUrl}`
   ].join('&')
 
-  const { payload: refreshTokenPayload } = await Wreck.post(`${wellKnownUrlPayload}?${query}`, {
+  const { payload } = await Wreck.post(`${wellKnown.url}?${query}`, {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     json: true
   })
 
-  return refreshTokenPayload
+  return payload
 }
 
 module.exports = {
