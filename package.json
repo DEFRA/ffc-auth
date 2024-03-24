@@ -1,6 +1,6 @@
 {
   "name": "ffc-auth",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Support authentication for Farming and Countryside Programme",
   "homepage": "https://github.com/DEFRA/ffc-auth",
   "main": "app/index.js",
