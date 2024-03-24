@@ -1,6 +1,6 @@
 const { AUTH_COOKIE_NAME } = require('./constants/cookies')
 const { parseJwt } = require('./parse-jwt')
-const { authHost } = require('./config')
+const { gatewayHost } = require('./config')
 
 const refreshToken = (request, h) => {
   if (request.path.includes('/assets/')) {
@@ -16,7 +16,7 @@ const refreshToken = (request, h) => {
   const decoded = parseJwt(token)
 
   if (decoded.exp * 1000 - Date.now() <= 600 * 1000) {
-    return h.redirect(`${authHost}/auth/refresh?redirect=${request.url.pathname}`).takeover()
+    return h.redirect(`${gatewayHost}/auth/refresh?redirect=${request.url.pathname}`).takeover()
   }
 
   return h.continue
