@@ -1,4 +1,4 @@
-const { gatewayHost } = require('../config')
+const { gatewayHost } = require('./config')
 
 const handle401 = (request, h) => {
   if (request.response.output.statusCode === 401) {
