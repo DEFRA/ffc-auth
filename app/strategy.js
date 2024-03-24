@@ -8,8 +8,7 @@ const strategy = {
   cookieKey: AUTH_COOKIE_NAME,
   validate: validateToken,
   verifyOptions: {
-    algorithms: [RS256],
-    ignoreExpiration: true
+    algorithms: [RS256]
   }
 }
 
