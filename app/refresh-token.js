@@ -3,7 +3,7 @@ const { parseJwt } = require('./parse-jwt')
 const { gatewayHost } = require('./config')
 
 const refreshToken = (request, h) => {
-  if (request.path.includes('/assets/')) {
+  if (request.path.includes('/assets/') || request.path.includes('/health')) {
     return h.continue
   }
 
