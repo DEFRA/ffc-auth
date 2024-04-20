@@ -5,7 +5,7 @@ const picker = (request, h) => {
     return h.continue
   }
 
-  return h.redirect(`${gatewayHost}/auth/picker/external?redirect=${request.url.pathname}&organisationId=${request.query.organisationId}`).takeover()
+  return h.redirect(`${gatewayHost}/auth/picker/external?redirect=${request.url.pathname}&organisationId=${request.headers.organisationId}`).takeover()
 }
 
 module.exports = {
