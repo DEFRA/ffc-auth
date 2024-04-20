@@ -1,7 +1,7 @@
 const { gatewayHost } = require('./config')
 
 const picker = (request, h) => {
-  if (!request.query.organisationId) {
+  if (!request.headers.organisationId) {
     return h.continue
   }
 
